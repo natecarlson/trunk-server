@@ -52,10 +52,7 @@ transcriptionString(call) {
     var transcriptionString = "";
     if (call.transcriptionList) {
         for (var transcription in call.transcriptionList) {
-          /*  srcNum = call.srcList[src].src;
-            if (sources.hasOwnProperty(srcNum)) {
-                srcString = srcString + sources[srcNum].codeName + ", ";
-            }*/
+          transcriptionString = call.transcriptionList[transcription].text;
         }
     }
 
@@ -111,6 +108,14 @@ render() {
     rowSelected={positive: true}
   }
   var talkgroup;
+  var transcriptionText;
+  
+  if (call.transcriptionList) {
+    for (var transcription in call.transcriptionList) {
+      transcriptionText = call.transcriptionList[transcription].text;
+    }
+  }
+
   if ((typeof this.props.talkgroups  == 'undefined') || (typeof this.props.talkgroups[call.talkgroupNum] == 'undefined')) {
       talkgroup = call.talkgroupNum;
   } else {
@@ -121,6 +126,7 @@ render() {
     <Table.Cell>  {call.len} </Table.Cell>
     <Table.Cell> {talkgroup} </Table.Cell>
     <Table.Cell> {time.toLocaleTimeString()} </Table.Cell>
+    <Table.Cell> {transcriptionText} </Table.Cell>
     <Table.Cell onMouseEnter={this.showStar} onMouseLeave={this.hideStar} onClick={this.addStar}>{starButton}</Table.Cell>
     </Table.Row>
 
