@@ -48,6 +48,19 @@ sourceString(call) {
 
     return srcString;
 }
+transcriptionString(call) {
+    var transcriptionString = "";
+    if (call.transcriptionList) {
+        for (var transcription in call.transcriptionList) {
+          /*  srcNum = call.srcList[src].src;
+            if (sources.hasOwnProperty(srcNum)) {
+                srcString = srcString + sources[srcNum].codeName + ", ";
+            }*/
+        }
+    }
+
+    return transcriptionString;
+}
 
 addStar(e) {
  e.preventDefault();

@@ -21,6 +21,7 @@ function get_calls(query, numResults, res) {
         name: true,
         time: true,
         srcList: true,
+        transcriptionList: true,
         star: true,
         len: true,
         url: true
@@ -42,6 +43,7 @@ function get_calls(query, numResults, res) {
                         filename: item.path + item.name,
                         time: item.time,
                         srcList: item.srcList,
+                        transcriptionList: item.transcriptionList,
                         star: item.star,
                         len: Math.round(item.len)
                     };
@@ -232,6 +234,7 @@ function package_call(item) {
         name: item.name,
         freq: item.freq,
         srcList: item.srcList,
+        transcriptionList: item.transcriptionList,
         freqList: item.freqList,
         star: item.star,
         len: Math.round(item.len)

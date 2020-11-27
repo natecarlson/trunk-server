@@ -18,6 +18,7 @@ class CallInfo extends React.Component {
 
   render() {
     var srcList = "";
+    var transcriptionList = "";
     var callLength = "-";
     var callFreq = "-";
     var callDate = "-";
@@ -35,6 +36,10 @@ class CallInfo extends React.Component {
 
       srcList = currentCall.srcList.map((source, index) => <List.Item key={index}>{source.src}
         [{source.pos}]</List.Item>);
+
+      transcriptionList = currentCall.transcriptionList.map((transcription, index) => <List.Item key={index}>{transcription.text}
+        [{transcription.pos}]</List.Item>);
+
       callLength = currentCall.len;
       talkgroupNum = currentCall.talkgroupNum;
     }
@@ -46,6 +51,10 @@ class CallInfo extends React.Component {
         <Header as='h1'>{this.props.header}</Header>
         <List bulleted horizontal link>
           {srcList}
+        </List>
+        <Divider/>
+        <List bulleted horizontal link>
+          {transcriptionList}
         </List>
         <Divider/>
         <Statistic size='small'>

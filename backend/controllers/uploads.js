@@ -105,6 +105,12 @@ process.nextTick(function() {
 
           var srcList = JSON.parse(req.body.source_list);
 
+          if (req.body.transcription_list) {
+            var transcriptionList = JSON.parse(req.body.transcription_list);
+          } else {
+            var transcriptionList = [];
+          }
+
           // Mongoose does not allow 'errors' to be used in the Schema for call. need to rename to error.
           var badFreqList = JSON.parse(req.body.freq_list);
           var freqList = badFreqList.map(obj =>{
@@ -117,6 +123,7 @@ process.nextTick(function() {
         } catch (err) {
           var srcList = [];
           var freqList = [];
+          var transcriptionList = [];
           console.warn("[" + req.params.shortName + "] Error /:shortName/upload Parsing Source/Freq List -  Error: " + err);
 
           res.status(500);
@@ -155,6 +162,7 @@ process.nextTick(function() {
           emergency: emergency,
           path: local_path,
           srcList: srcList,
+          transcriptionList: transcriptionList,
           freqList: freqList,
           len: -1
         });
