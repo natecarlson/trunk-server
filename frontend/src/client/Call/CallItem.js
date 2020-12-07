@@ -35,29 +35,6 @@ constructor(props) {
     starClicked: false
   }
 }
-sourceString(call) {
-    var srcString = "";
-    if (call.srcList) {
-        for (var src in call.srcList) {
-          /*  srcNum = call.srcList[src].src;
-            if (sources.hasOwnProperty(srcNum)) {
-                srcString = srcString + sources[srcNum].codeName + ", ";
-            }*/
-        }
-    }
-
-    return srcString;
-}
-transcriptionString(call) {
-    var transcriptionString = "";
-    if (call.transcriptionList) {
-        for (var transcription in call.transcriptionList) {
-          transcriptionString = call.transcriptionList[transcription].text;
-        }
-    }
-
-    return transcriptionString;
-}
 
 addStar(e) {
  e.preventDefault();
@@ -109,10 +86,24 @@ render() {
   }
   var talkgroup;
   var transcriptionText;
+  var srcString;
+  var srcNum;
   
   if (call.transcriptionList) {
     for (var transcription in call.transcriptionList) {
       transcriptionText = call.transcriptionList[transcription].text;
+    }
+  }
+
+  if (call.srcList) {
+    srcString = "";
+    for (var src in call.srcList) {
+      srcNum = call.srcList[src].src;
+      /* if (sources.hasOwnProperty(srcNum)) {
+        srcString = srcString + sources[srcNum].codeName + ", ";
+      } else { */
+        srcString = srcString + srcNum + " ";
+      /* } */
     }
   }
 
@@ -126,6 +117,7 @@ render() {
     <Table.Cell>  {call.len} </Table.Cell>
     <Table.Cell> {talkgroup} </Table.Cell>
     <Table.Cell> {time.toLocaleTimeString()} </Table.Cell>
+    <Table.Cell> {srcString} </Table.Cell>
     <Table.Cell> {transcriptionText} </Table.Cell>
     <Table.Cell onMouseEnter={this.showStar} onMouseLeave={this.hideStar} onClick={this.addStar}>{starButton}</Table.Cell>
     </Table.Row>

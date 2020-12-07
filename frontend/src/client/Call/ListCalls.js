@@ -46,6 +46,7 @@ class ListCalls extends React.Component {
               <Table.HeaderCell>Len</Table.HeaderCell>
               <Table.HeaderCell>Talkgroup</Table.HeaderCell>
               <Table.HeaderCell>Time</Table.HeaderCell>
+              <Table.HeaderCell>Source IDs</Table.HeaderCell>
               <Table.HeaderCell>Transcription</Table.HeaderCell>
               <Table.HeaderCell><Icon name='star' /></Table.HeaderCell>
             </Table.Row>
