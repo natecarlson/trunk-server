@@ -27,11 +27,11 @@ if (isDev) {
 	app.use(require("webpack-hot-middleware")(compiler))
 }
 
-var backend_server = process.env['BACKEND_SERVER'] != null ? process.env['BACKEND_SERVER'] : 'https://api.openmhz.com';
-var frontend_server = process.env['FRONTEND_SERVER'] != null ? process.env['FRONTEND_SERVER'] : 'https://openmhz.com';
-var media_server = process.env['MEDIA_SERVER'] != null ? process.env['MEDIA_SERVER'] : 'https://media.openmhz.com'; //'https://s3.amazonaws.com/robotastic';
-var socket_server = process.env['SOCKET_SERVER'] != null ? process.env['SOCKET_SERVER'] : 'wss://api.openmhz.com'; //'https://s3.amazonaws.com/robotastic';
-var site_name = process.env['SITE_NAME'] != null ? process.env['SITE_NAME'] : "OpenMHz";
+var backend_server = process.env['BACKEND_SERVER'] != null ? process.env['BACKEND_SERVER'] : 'http://api.scanner.technicality.org';
+var frontend_server = process.env['FRONTEND_SERVER'] != null ? process.env['FRONTEND_SERVER'] : 'http://localhost:3000';
+var media_server = process.env['MEDIA_SERVER'] != null ? process.env['MEDIA_SERVER'] : 'http://media.scanner.technicality.org'; //'https://s3.amazonaws.com/robotastic';
+var socket_server = process.env['SOCKET_SERVER'] != null ? process.env['SOCKET_SERVER'] : 'wss://api.scanner.technicality.org'; //'https://s3.amazonaws.com/robotastic';
+var site_name = process.env['SITE_NAME'] != null ? process.env['SITE_NAME'] : "Nate's Playbox";
 const proPlanValue = process.env['PRO_PLAN'] != null ? process.env['PRO_PLAN'] : 10;
 const freePlanValue = process.env['FREE_PLAN'] != null ? process.env['FREE_PLAN'] : 0;
 const proPlanArchive = process.env['PRO_PLAN_ARCHIVE'] != null ? process.env['PRO_PLAN_ARCHIVE'] : 30;
