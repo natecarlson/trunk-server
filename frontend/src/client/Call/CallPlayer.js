@@ -363,6 +363,7 @@ class CallPlayer extends React.Component {
     this.props.callActions.setFilter(filter);
     this.props.callActions.fetchCalls();
     this.props.talkgroupActions.fetchTalkgroups(this.props.shortName);
+    this.props.sourcesActions.fetchSources(this.props.shortName);
     this.props.groupActions.fetchGroups(this.props.shortName);
     this.props.systemActions.fetchSystems();
     this.setupSocket();

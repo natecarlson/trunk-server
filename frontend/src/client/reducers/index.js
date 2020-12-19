@@ -4,6 +4,7 @@ import system from "../System/system-reducer"
 import talkgroup from "../Talkgroups/talkgroup-reducer"
 import group from "../Group/group-reducer"
 import call from "../Call/call-reducer"
+import sources from "../Sources/sources-reducer"
 
 
 	export default (history) => combineReducers({
@@ -11,5 +12,6 @@ import call from "../Call/call-reducer"
 	system,
 	talkgroup,
 	group,
-	call
+	call,
+	sources
 })

@@ -99,19 +99,23 @@ render() {
     srcString = "";
     for (var src in call.srcList) {
       srcNum = call.srcList[src].src;
-      /* if (sources.hasOwnProperty(srcNum)) {
-        srcString = srcString + sources[srcNum].codeName + ", ";
-      } else { */
+      //srcString = srcString + srcNum + " ";
+      // Define the friendly name for the source 
+      if ((typeof this.props.sources == 'undefined') || (typeof this.props.sources[srcNum] == 'undefined')) {
         srcString = srcString + srcNum + " ";
-      /* } */
+      } else {
+        srcString = srcstring + this.props.sources[srcNum].srcNickname + " [" + srcNum + "], ";
+      }
     }
   }
 
+  // Define the friendly name for the talkgroup
   if ((typeof this.props.talkgroups  == 'undefined') || (typeof this.props.talkgroups[call.talkgroupNum] == 'undefined')) {
       talkgroup = call.talkgroupNum;
   } else {
       talkgroup = this.props.talkgroups[call.talkgroupNum].description;
   }
+  
   return (
     <Table.Row onClick={(e) => this.props.onClick({call: call}, e)} {...rowSelected}>
     <Table.Cell>  {call.len} </Table.Cell>
