@@ -13,6 +13,7 @@ var systems = require("./controllers/systems");
 var talkgroups = require("./controllers/talkgroups");
 var groups = require("./controllers/groups");
 var stats = require("./controllers/stats");
+var sources = require("./controllers/sources");
 
 var config = require('./config/config.json');
 
@@ -197,6 +198,9 @@ app.get('/systems', addSystemClients, systems.get_systems);
 
 /*------    TALKGROUPS   ----------*/
 app.get('/:shortName/talkgroups', talkgroups.get_talkgroups);
+
+/*------    SOURCES   ----------*/
+app.get('/:shortName/sources', sources.get_sources);
 
 /*------    GROUPS   ----------*/
 app.get('/:shortName/groups', groups.get_groups);

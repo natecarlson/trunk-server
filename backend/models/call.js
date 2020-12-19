@@ -27,5 +27,6 @@ var callSchema = mongoose.Schema({
   freqList: [freqSchema]
 });
 
+callSchema.index({shortName: 1, time: 1, talkgroupNum: 1});
 
 module.exports = mongoose.model('Call', callSchema);
