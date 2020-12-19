@@ -54,7 +54,7 @@ class ListCalls extends React.Component {
 
           <Table.Body>
 
-            {this.props.callsAllIds.map((callId, index) => <CallItem activeCall={callId == this.props.activeCallId ? true : false} call={this.props.callsById[callId]} talkgroups={this.props.talkgroups} key={index} onClick={this.props.playCall}/>)}
+            {this.props.callsAllIds.map((callId, index) => <CallItem activeCall={callId == this.props.activeCallId ? true : false} call={this.props.callsById[callId]} talkgroups={this.props.talkgroups} sources={this.props.sources} key={index} onClick={this.props.playCall}/>)}
 
           </Table.Body>
         </Table>
