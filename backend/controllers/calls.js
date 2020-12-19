@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var Call = require("../models/call");
 var Star = require("../models/star");
 
-var defaultNumResults = 50;
+var defaultNumResults = 150;
 
 
 var channels = {};
