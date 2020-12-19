@@ -17,6 +17,20 @@ function fetchSourcesError(data) {
   data };
 }
 
+function makeUserRequest(method, data, api) {
+  // returns a Promise
+  return axios({
+    method: method,
+    url: api,
+    data: data
+  });
+}
+
+export function changeUrl(url) {
+  return dispatch => {
+    dispatch(push(url));
+  };
+}
 
 function shouldFetchSources(state, shortName) {
   if (!state.sources.items.hasOwnProperty(shortName)) {
@@ -31,26 +45,28 @@ function shouldFetchSources(state, shortName) {
 export function fetchSources(shortName) {
   return (dispatch, getState) => {
     if (shouldFetchSources(getState(), shortName)) {
-    dispatch(beginFetchSources());
+      console.log("Info", "Triggering beginFetchSources..");
+      dispatch(beginFetchSources());
 
-    return axios
-      .get(backend_server + "/" + shortName + "/sources")
-      .then(response => {
-        if (response.data) {
-          var data = { shortName: shortName, sources: response.data.sources }
-          dispatch(fetchSourcesSuccess(data));
-        } else {
-          dispatch(fetchSourcesError());
-          let registerMessage = response.data.message;
-          return registerMessage;
-        }
-      })
-      .catch(response => {
-        if (response instanceof Error) {
-          // Something happened in setting up the request that triggered an Error
-          console.log("Error", response.message);
-        }
-      });
+      return axios
+        .get(backend_server + "/" + shortName + "/sources")
+        .then(response => {
+          if (response.data) {
+            var data = { shortName: shortName, sources: response.data.sources }
+            console.log("Info", "Received data, triggering fetchSourcesSuccess..");
+            dispatch(fetchSourcesSuccess(data));
+          } else {
+            dispatch(fetchSourcesError());
+            let registerMessage = response.data.message;
+            return registerMessage;
+          }
+        })
+        .catch(response => {
+          if (response instanceof Error) {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", response.message);
+          }
+        });
   };
 };
 }

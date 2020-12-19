@@ -546,7 +546,7 @@ class CallPlayer extends React.Component {
           style={{ minHeight: '100vh' }}
         >
         <Waypoint onEnter={this.loadNewerCalls}/>
-        <ListCalls callsAllIds={this.props.callsAllIds} callsById={this.props.callsById} activeCallId={this.state.callId} talkgroups={this.props.talkgroups} playCall={this.playCall} />
+        <ListCalls callsAllIds={this.props.callsAllIds} callsById={this.props.callsById} activeCallId={this.state.callId} talkgroups={this.props.talkgroups} sources={this.props.sources} playCall={this.playCall} />
       </Sidebar.Pusher>
       </Sidebar.Pushable>
         <Waypoint onEnter={this.loadOlderCalls}/>

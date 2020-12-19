@@ -104,7 +104,7 @@ render() {
       if ((typeof this.props.sources == 'undefined') || (typeof this.props.sources[srcNum] == 'undefined')) {
         srcString = srcString + srcNum + " ";
       } else {
-        srcString = srcstring + this.props.sources[srcNum].srcNickname + " [" + srcNum + "], ";
+        srcString = srcString + this.props.sources[srcNum].srcNickname + " [" + srcNum + "], ";
       }
     }
   }

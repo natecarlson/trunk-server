@@ -34,14 +34,18 @@ const sources = (
   switch (action.type) {
 
     case FETCH_SOURCES:
+
     case FETCH_SUCCESS_SOURCES:
-    /* return Object.assign({}, state, {
+    if (action.type === FETCH_SUCCESS_SOURCES) {
+      return Object.assign({}, state, {
         isWaiting: false,
         items: {
           ...state.items,
           [action.data.shortName]: action.data.sources
         }
-      }); */
+      });
+    }
+
     case FETCH_ERROR_SOURCES:
 
     default:
