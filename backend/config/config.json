@@ -1,4 +1,4 @@
 {
-  "uploadDirectory": "/home/app/upload",
-  "mediaDirectory": "/home/app/media"
+  "uploadDirectory": "/home/mnscanner/mnscanner/upload",
+  "mediaDirectory": "/home/mnscanner/mnscanner/media"
 }
