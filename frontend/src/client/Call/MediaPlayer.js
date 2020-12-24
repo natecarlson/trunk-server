@@ -80,14 +80,21 @@ componentWillUpdate(nextProps) {
 
 render(){
   var playEnabled = { "disabled": true }
+  var srcNum = "-";
   var sourceId = "-";
   var callUrl = null;
   if (this.props.call) {
      callUrl = media_server + this.props.call.filename;
   }
+
   if (this.props.call) {
     if (this.props.call.srcList.length > this.state.sourceIndex) {
-      sourceId = this.props.call.srcList[this.state.sourceIndex].src;
+      srcNum = this.props.call.srcList[this.state.sourceIndex].src;
+      if ((typeof this.props.sources == 'undefined') || (typeof this.props.sources[srcNum] == 'undefined')) {
+        sourceId = srcNum;
+      } else {
+        sourceId = this.props.sources[srcNum].srcNickname + " [" + srcNum + "], ";
+      }
     }
     playEnabled = {};
   }

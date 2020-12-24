@@ -559,7 +559,7 @@ class CallPlayer extends React.Component {
 
       <Menu fixed="bottom" compact inverted >
         <Menu.Item active={this.state.autoPlay} onClick={() => this.switchAutoPlay()}><Icon name="level up"/><span className="desktop-only">Autoplay</span></Menu.Item>
-        <MediaPlayer ref={this.audioRef} call={currentCall} onEnded={this.callEnded}/>
+        <MediaPlayer ref={this.audioRef} call={currentCall} sources={this.props.sources} onEnded={this.callEnded}/>
         <Menu.Menu position="right" className="desktop-only">
           <Menu.Item onClick={this.handleSupportToggle}><Icon name="coffee"/>Support OpenMHz</Menu.Item>
           <Menu.Item><a href={callDownload}><Icon name="download"/>Download</a></Menu.Item>
