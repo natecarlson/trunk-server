@@ -70,7 +70,7 @@
     "react-waypoint": "9.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.2.0",
-    "semantic-ui-react": "0.85.0",
+    "semantic-ui-react": "2.0.1",
     "url-loader": "1.1.2",
     "victory": "^31.2.0",
     "webpack-merge": "4.2.1"
